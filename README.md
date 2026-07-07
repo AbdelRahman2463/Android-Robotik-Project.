@@ -65,9 +65,7 @@ The system achieves smooth real-time operation with a response latency of approx
 
 ## 👥 Authors
 
-- **Abdelrhman Aldwary** (9058915)
-- **Abdallah Alqudah** (9058873)
-- **Haya Bawati** (9058924)
+- **Abdelrhman Aldwary** 
 
 Supervised by **Prof. Thomas Breuer** — University of Applied Sciences Bonn-Rhein-Sieg, 2026.
 
