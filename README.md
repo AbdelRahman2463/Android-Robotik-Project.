@@ -1,46 +1,125 @@
-# Android Robotik Project
+🤖 Android Robotik Project
 
-This is an Android application designed to control a robot, featuring Bluetooth connectivity, joystick control, and camera-based line and ball following capabilities.
+An Android-controlled robotic system that combines manual joystick control with autonomous object detection and tracking — built to demonstrate the integration of mobile development, embedded systems, and computer vision.
 
-## Features
+Project for the University of Applied Sciences Bonn-Rhein-Sieg.
 
-*   **Bluetooth Connectivity:** Connects to a robot via Bluetooth.
-*   **Joystick Control:** Manual control of the robot using an on-screen joystick.
-*   **Camera Integration:** Utilizes CameraX for real-time video preview.
-*   **Line Following:** Autonomous mode to follow a line using camera vision.
-*   **Ball Following:** Autonomous mode to follow a ball using camera vision.
-*   **Battery Monitoring:** Displays the robot's battery voltage.
+📖 Overview
 
-## Setup and Installation
+The system utilizes an Android Smartphone mounted on a robot platform powered by an STM32 Microcontroller. It supports two primary modes of operation:
 
-1.  Clone the repository:
-    ```bash
-    git clone [repository_url]
-    ```
-2.  Open the project in Android Studio.
-3.  Build and run the application on an Android device.
+Mode
+Description
+Technology
+Manual Control
+Real-time robot navigation via a virtual joystick interface
+Bluetooth Serial
+Autonomous Tracking
+Automatic object following (Line or Ball) using the phone's camera
+CameraX + Computer Vision
 
-## Permissions
 
-The application requires the following permissions:
 
-*   `android.permission.CAMERA`
-*   `android.permission.BLUETOOTH_CONNECT` (Android 12+)
-*   `android.permission.BLUETOOTH_SCAN` (Android 12+)
 
-## Usage
+The Android application serves as the central hub, processing live video feed at ~30 FPS to calculate movement errors and sending proportional control commands to the STM32 via Bluetooth. The system includes safety mechanisms to stop the robot if the connection is lost or the target is no longer detected.
 
-1.  **Connect to Robot:** Tap the "Connect" button to establish a Bluetooth connection with your robot.
-2.  **Manual Control:** Use the on-screen joystick to control the robot's movement. Adjust speed with the slider.
-3.  **Camera Modes:**
-    *   Tap "Toggle Camera" to start the camera preview.
-    *   Select "Start Line" or "Start Ball" to activate autonomous line or ball following modes.
-4.  **Battery Check:** Tap "Get Battery" to view the robot's battery level.
+🛠️ Hardware
 
-## Contributing
+•
+STM32 Microcontroller — Main controller for motor PWM and Bluetooth communication.
 
-Feel free to fork this repository and contribute. Please open an issue or pull request for any changes.
+•
+Bluetooth Module — Wireless data transfer between the app and the robot.
 
-## License
+•
+Motor Driver — Controls DC motor direction and speed.
 
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+•
+Android Smartphone — Provides UI, Bluetooth connectivity, and camera-based tracking.
+
+•
+DC Motors & Chassis — Mechanical and power components for movement.
+
+⚙️ Setup
+
+1.
+Clone the repository:
+
+Bash
+
+
+git clone https://github.com/AbdelRahman2463/Android-Robotik-Project.git
+cd Android-Robotik-Project
+
+
+
+
+
+2.
+Open in Android Studio:
+
+•
+Launch Android Studio and select Open.
+
+•
+Navigate to the Android-Robotik-Project folder and select it.
+
+•
+Wait for Gradle to sync and download dependencies.
+
+
+
+3.
+Build and Run:
+
+•
+Connect your Android device (ensure Developer Options and USB Debugging are enabled ).
+
+•
+Click the Run button (green play icon) in Android Studio.
+
+
+
+📁 Project Structure
+
+Plain Text
+
+
+android-robotik-project/
+├── app/
+│   ├── src/main/
+│   │   ├── java/com/hbrs/
+│   │   │   ├── MainActivity.java      # Central coordinator & UI logic
+│   │   │   ├── Bluetooth/             # Bluetooth device discovery
+│   │   │   └── ORB/                   # Robot control interface
+│   │   └── AndroidManifest.xml        # Permissions (Camera, Bluetooth)
+│   └── build.gradle                   # App dependencies & configuration
+├── docs/
+│   └── FinalReport.pdf                # Full project documentation
+├── README.md                          # Project overview
+├── LICENSE.md                         # MIT License
+└── .gitignore                         # Git exclusion rules
+
+
+
+📊 Results
+
+The system achieves smooth real-time operation with a response latency of approximately 33ms. The use of the HSV color space for ball detection provides robustness under variable lighting conditions. Testing confirmed reliable transition between manual and autonomous modes, with failsafe callbacks ensuring stable operation.
+
+👥 Authors
+
+•
+Abdelrhman Aldwary (9058915)
+
+•
+Abdallah Alqudah (9058873)
+
+•
+Haya Bawati (9058924)
+
+Supervised by Prof. Thomas Breuer — University of Applied Sciences Bonn-Rhein-Sieg, 2026.
+
+📄 Full Report
+
+See docs/FinalReport.pdf for the complete project report and technical specifications.
+
